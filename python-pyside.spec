@@ -42,7 +42,9 @@ The following GUI backends are supported:
 %build
 
 %__python setup.py build
-%__python setup.py build_docs --format html
+pushd docs
+make html
+popd
 
 %install
 %__rm -rf %{buildroot}
@@ -53,5 +55,5 @@ PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot} --record
 
 %files -f FILE_LIST
 %defattr(-,root,root)
-%doc *.txt *.rst examples/ build/docs/html
+%doc *.txt *.rst examples/ docs/build/html
 
