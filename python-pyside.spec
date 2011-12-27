@@ -1,6 +1,6 @@
 %define module	pyface
 %define name	python-%{module}
-%define version	4.0.0
+%define version	4.1.0
 %define release %mkrel 1
 
 Summary:	Enthought Tool Suite - pyface project
@@ -10,12 +10,12 @@ Release:	%{release}
 Source0:	http://www.enthought.com/repo/ets/%{module}-%{version}.tar.gz
 License:	BSD
 Group:		Development/Python
-Url:		http://code.enthought.com/projects/traits_gui/
+Url:		https://github.com/enthought/pyface/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch:	noarch
 Obsoletes:	python-enthought-traitsbackendwx
 Obsoletes:	python-enthought-traitsbackendqt
-Requires:	python-traits >= 4.0.0
+Requires:	python-traits >= 4.1.0
 Requires:	wxPython >= 2.8
 Requires:	python-qt4
 Requires:	pyside
