@@ -1,9 +1,14 @@
 %define module	pyface
 %define name	python-%{module}
-%define version	4.1.0
-%define release %mkrel 1
+%define version	4.2.0
+%define	rel		1
+%if %mdkversion < 201100
+%define release %mkrel %{rel}
+%else
+%define release	%{rel}
+%endif
 
-Summary:	Enthought Tool Suite - pyface project
+Summary:	Enthought Tool Suite - traits-capable windowing framework
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
@@ -15,12 +20,14 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch:	noarch
 Obsoletes:	python-enthought-traitsbackendwx
 Obsoletes:	python-enthought-traitsbackendqt
-Requires:	python-traits >= 4.1.0
+Requires:	python-traits >= 4.2.0
 Requires:	wxPython >= 2.8
 Requires:	python-qt4
 Requires:	pyside
 BuildRequires:	python-setuptools >= 0.6c8
 BuildRequires:	wxPython >= 2.8
+BuildRequires:	x11-server-xvfb, procps
+BuildRequires:	python-setupdocs >= 1.0.5
 BuildRequires:	python-sphinx
 
 %description
@@ -40,20 +47,21 @@ The following GUI backends are supported:
 %setup -q -n %{module}-%{version}
 
 %build
-
 %__python setup.py build
-pushd docs
-make html
-popd
+Xvfb :100 -ac &
+XPID=$!
+export DISPLAY=:100.0
+%__python setup.py build_docs
+kill -9 $XPID
 
 %install
 %__rm -rf %{buildroot}
-PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot} --record=FILE_LIST
+PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot}
 
 %clean
 %__rm -rf %{buildroot}
 
-%files -f FILE_LIST
+%files 
 %defattr(-,root,root)
-%doc *.txt *.rst examples/ docs/build/html
-
+%doc *.txt *.rst examples/ build/docs/html
+%py_sitedir/%{module}*
