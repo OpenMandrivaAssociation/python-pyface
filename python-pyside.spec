@@ -65,3 +65,19 @@ PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot}
 %defattr(-,root,root)
 %doc *.txt *.rst examples/ build/docs/html
 %py_sitedir/%{module}*
+
+
+%changelog
+* Mon Aug 13 2012 Lev Givon <lev@mandriva.org> 4.2.0-1
++ Revision: 814695
+- Update to 4.2.0.
+
+* Tue Dec 27 2011 Lev Givon <lev@mandriva.org> 4.1.0-1
++ Revision: 745692
+- Update to 4.1.0.
+
+* Thu Jul 07 2011 Lev Givon <lev@mandriva.org> 4.0.0-1
++ Revision: 689178
+- import python-pyface
+
+
