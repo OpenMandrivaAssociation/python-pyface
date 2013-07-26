@@ -1,2 +1,4 @@
+removed_sources:
+  pyface-4.2.0.tar.gz: ddaac751778b6a8d446e0e4865557b0bedf043b9
 sources:
-  "pyface-4.2.0.tar.gz": ddaac751778b6a8d446e0e4865557b0bedf043b9
+  pyface-4.3.0.tar.gz: 3ce269ff0b4fd55a63e2bba73938df271acea6c0
