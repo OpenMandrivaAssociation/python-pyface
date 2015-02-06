@@ -11,7 +11,7 @@
 Summary:	Enthought Tool Suite - traits-capable windowing framework
 Name:		%{name}
 Version:	4.3.0
-Release:	1
+Release:	2
 Source0:	https://www.enthought.com/repo/ets/pyface-%{version}.tar.gz
 License:	BSD
 Group:		Development/Python
