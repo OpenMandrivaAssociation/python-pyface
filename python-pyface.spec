@@ -3,7 +3,7 @@
 Summary:	Enthought Tool Suite - traits-capable windowing framework
 Name:		python-%{module}
 Version:	8.0.0
-Release:	2
+Release:	3
 Source0:	https://pypi.python.org/packages/source/p/pyface/pyface-%{version}.tar.gz
 License:	BSD
 Group:		Development/Python
